@@ -15,50 +15,7 @@
                         <ul v-for="category in categories" v-bind:key="category.id" class="tree-view-category">                                
                             <category-table-tree :node="category" ></category-table-tree>
                         </ul>
-                        <!-- <thead>
-                            <tr>
-                                <th>Name</th>
-                                <th>Description</th>
-                                <th>Slug</th>
-                                <th>Count</th>
-                                <th></th>
-                            </tr>
-                        </thead> -->
-                        <!-- <tbody>
-                            
-                            <template v-for="category in categories">
-                                <tr v-bind:key="category.id">
-                                    <td>{{ category.name }}</td>
-                                    <td>{{ category.description }}</td>
-                                    <td>{{ category.slug }}</td>
-                                    <td>0</td>
-                                    <td class="text-right">
-                                        <button  @click="deleteCategory(category.id, index)" class="btn btn-danger">
-                                            <i class="fa fa-trash"></i>
-                                        </button>
-                                        <a class="btn btn-primary" v-bind:href="category.editlink">
-                                            <i class="fa fa-edit"></i>
-                                        </a>
-                                    </td>
-                                </tr>
-                                <template v-if="category.children && category.children.length">
-                                    <tr v-for="child in category.children" v-bind:key="child.id">
-                                        <td> - {{ child.name }}</td>
-                                        <td>{{ child.description }}</td>
-                                        <td>{{ child.slug }}</td>
-                                        <td>0</td>
-                                        <td class="text-right">
-                                            <button  @click="deleteCategory(child.id, index)" class="btn btn-danger">
-                                                <i class="fa fa-trash"></i>
-                                            </button>
-                                            <a class="btn btn-primary" v-bind:href="child.editlink">
-                                                <i class="fa fa-edit"></i>
-                                            </a>
-                                        </td>
-                                    </tr>
-                                </template>
-                           </template>
-                        </tbody> !-->
+                        
                     </div>
                     <div v-if="!categories.length" class="text-center p-3 text-muted">
                         <h5>No Results</h5>

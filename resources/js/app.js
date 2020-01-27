@@ -13,17 +13,29 @@ import PostComponent from './components/PostComponent';
 import UsersComponent from './components/UsersComponent';
 import ProfileComponent from './components/ProfileComponent';
 import AdduserComponent from './components/AdduserComponent';
+
 import CategoryComponent from './components/category/CategoryComponent';
-import AddcategoryComponent from './components/category/AddcategoryComponent';
-import EditcategoryComponent from './components/category/EditcategoryComponent';
+import AddCategoryComponent from './components/category/AddCategoryComponent';
+import EditCategoryComponent from './components/category/EditCategoryComponent';
+
+import TagComponent from './components/tag/TagComponent';
+import AddTagComponent from './components/tag/AddTagComponent';
+import EditTagComponent from './components/tag/EditTagComponent';
 
 Vue.component('post-component', PostComponent);
 Vue.component('users-component', UsersComponent);
 Vue.component('profile-component', ProfileComponent);
 Vue.component('adduser-component', AdduserComponent);
+
 Vue.component('category-component', CategoryComponent);
-Vue.component('addcategory-component', AddcategoryComponent);
-Vue.component('editcategory-component', EditcategoryComponent);
+Vue.component('addcategory-component', AddCategoryComponent);
+Vue.component('editcategory-component', EditCategoryComponent);
+
+
+Vue.component('tag-component', TagComponent);
+Vue.component('addtag-component', AddTagComponent);
+Vue.component('edittag-component', EditTagComponent);
+
 
 const app = new Vue({
     el: '#app',

@@ -18,6 +18,7 @@
           <li><a class="nav-link" href="layout-default.html">All Posts</a></li>
           <li><a class="nav-link" href="layout-transparent.html">Add New</a></li>
           <li><a class="nav-link" href="{{ route('admin.category.index') }}">Categories</a></li>
+          <li><a class="nav-link" href="{{ route('admin.tag.index') }}">Tags</a></li>
         </ul>
       </li>
     </ul>
