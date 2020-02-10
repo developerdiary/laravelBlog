@@ -3,7 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
+
 use App\Post;
+use App\Category;
+use App\Tag;
 
 class PostController extends Controller
 {
@@ -12,8 +16,20 @@ class PostController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        
+        if($request->ajax())
+        {
+            $posts = new Post;
+            if($request->q)
+            {
+                $posts = $posts->where('name', 'like', '%'.$request->q.'%');
+            }
+            $posts = $posts->paginate(config('stisla.perpage'))->appends(['q' => $request->q]);            
+            return response()->json($posts);
+        }
+
 
         return view('admin.post.index');
     }
@@ -25,7 +41,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.post.create');
     }
 
     /**
@@ -36,7 +52,24 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        
+        $request->validate([
+            'title' => 'required'
+        ]);
+
+        $post = new Post;
+
+        $post->title = $request->title;
+        $post->body = $request->description;
+        $post->slug = Str::slug($request->title, '-');
+
+        $post->save();
+        
+        $post->category()->attach($request->category_value);
+        $post->tag()->attach($request->tag_value);
+
+        return response()->json($post);  
+
     }
 
     /**
@@ -58,7 +91,7 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        //
+        return view('admin.post.edit', compact('post'));
     }
 
     /**

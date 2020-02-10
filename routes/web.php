@@ -7,11 +7,17 @@ Route::get('home', function() {
     return redirect(route('admin.dashboard'));
 });
 
+
+
+
 Route::name('admin.')->prefix('admin')->middleware('auth')->group(function() {
+
     Route::get('dashboard', 'DashboardController')->name('dashboard');
     Route::resource('post', 'PostController');
     Route::resource('category', 'CategoryController');    
-    Route::resource('tag', 'TagController');    
+    
+    Route::get('tag/all', array('as' => 'admin.tag.all', 'uses' => 'TagController@getAllTags'));
+    Route::resource('tag', 'TagController');  
 
     Route::get('users/roles', 'UserController@roles')->name('users.roles');
     Route::resource('users', 'UserController', [

@@ -28,14 +28,7 @@ class CategoryController extends Controller
         return view('admin.category.index');
     }
 
-    // /**
-    //  * Return the category excluding current category id
-    //  */
-    // public function getParentCategory(Request $request) 
-    // {
-    //     echo 'sdfs';        
-    // }
-
+   
     /**
      * Show the form for creating a new resource.
      *

@@ -28,4 +28,8 @@ class Category extends Model
     public function children() {
         return $this->hasMany('App\Category','parent_id','id')->with('Children');
     }
+
+    public function post(){
+        return $this->belongsToMany('App\Post', 'post_category');
+    }
 }

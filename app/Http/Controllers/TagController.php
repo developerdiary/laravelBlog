@@ -28,6 +28,15 @@ class TagController extends Controller
         return view('admin.tag.index');
     }
 
+    public function getAllTags(Request $request)
+    {
+        
+        $tags = Tag::all();
+        return response()->json($tags);
+
+    }
+    
+
     /**
      * Show the form for creating a new resource.
      *

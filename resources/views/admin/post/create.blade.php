@@ -1,16 +1,16 @@
 @extends('layouts.admin-master')
 
 @section('title')
-Create User
+Create Post
 @endsection
 
 @section('content')
 <section class="section">
   <div class="section-header">
-    <h1>Add User</h1>
+    <h1>Add New Post</h1>
   </div>
   <div class="section-body">
-      <adduser-component></adduser-component>
+      <addPost-component></addPost-component>
   </div>
 </section>
 @endsection
