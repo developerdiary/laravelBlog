@@ -9,6 +9,8 @@ use App\Post;
 use App\Category;
 use App\Tag;
 
+use App;
+
 class PostController extends Controller
 {
     /**
@@ -103,7 +105,21 @@ class PostController extends Controller
      */
     public function update(Request $request, Post $post)
     {
-        //
+        $request->validate([
+            'title' => 'required'
+        ]);
+
+        $post->title = $request->title;
+        $post->body = $request->description;
+        $post->slug = Str::slug($request->title, '-');
+
+        $post->save();
+        
+                
+        $post->category()->sync($request->category_value);        
+        $post->tag()->sync($request->tag_value);        
+
+        return response()->json($post); 
     }
 
     /**
@@ -114,6 +130,12 @@ class PostController extends Controller
      */
     public function destroy(Post $post)
     {
-        //
+        if(!App::environment('demo'))
+        {
+            $post->delete();
+        } else
+        {
+            return response()->json(['message' => 'User accounts cannot be deleted in demo mode.'], 400);
+        }
     }
 }

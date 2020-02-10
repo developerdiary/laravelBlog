@@ -7040,18 +7040,25 @@ __webpack_require__.r(__webpack_exports__);
         return JSON.parse(this.post)[key];
       }
     },
-    updatePost: function updatePost() {// let _this = this;
-      // _this.errors = [];
-      // _this.message = '';
-      // _this.loading = true;
-      // axios.put(this.$parent.MakeUrl('admin/post/'+this.getCategorydata('id')), {'name': this.name, 'description': this.description, 'parent_id': this.value}).then((res) => {
-      //     _this.loading = false;
-      //     // _this.resetForm();
-      //     _this.message = 'Category has been successfully created!';
-      // }).catch((err) => {
-      //     _this.errors = err.response.data.errors;
-      //     _this.loading = false;
-      // });
+    updatePost: function updatePost() {
+      var _this = this;
+
+      _this.errors = [];
+      _this.message = '';
+      _this.loading = true;
+      axios.put(this.$parent.MakeUrl('admin/post/' + this.getPostData('id')), {
+        'title': this.title,
+        'description': this.description,
+        'category_value': this.category_value,
+        'tag_value': this.tag_value
+      }).then(function (res) {
+        _this.loading = false; // _this.resetForm();
+
+        _this.message = 'Post has been successfully updated!';
+      })["catch"](function (err) {
+        _this.errors = err.response.data.errors;
+        _this.loading = false;
+      });
     },
     onFileChange: function onFileChange(e) {
       var files = e.target.files || e.dataTransfer.files;
@@ -7180,14 +7187,14 @@ __webpack_require__.r(__webpack_exports__);
         console.log(error);
       });
     },
-    deletePosts: function deletePosts(postId, index) {
+    deletePost: function deletePost(postId, index) {
       var _this = this;
 
       this.$iosConfirm({
         title: 'Are you sure?',
-        text: 'The user and their associated data will be permanently deleted. Proceed?'
+        text: 'The post and their associated data will be permanently deleted. Proceed?'
       }).then(function () {
-        axios["delete"](_this.$parent.MakeUrl('admin/posts/' + postId)).then(function (res) {
+        axios["delete"](_this.$parent.MakeUrl('admin/post/' + postId)).then(function (res) {
           _this.posts.splice(index, 1);
 
           _this.total = _this.total - 1;
@@ -60885,7 +60892,7 @@ var render = function() {
                                     staticClass: "btn btn-danger",
                                     on: {
                                       click: function($event) {
-                                        return _vm.deletePost(_vm.ost.id, index)
+                                        return _vm.deletePost(post.id, index)
                                       }
                                     }
                                   },

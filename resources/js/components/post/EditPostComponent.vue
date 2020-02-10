@@ -135,18 +135,18 @@ export default {
             }            
         },
         updatePost(){
-            // let _this = this;
-            // _this.errors = [];
-            // _this.message = '';
-            // _this.loading = true;
-            // axios.put(this.$parent.MakeUrl('admin/post/'+this.getCategorydata('id')), {'name': this.name, 'description': this.description, 'parent_id': this.value}).then((res) => {
-            //     _this.loading = false;
-            //     // _this.resetForm();
-            //     _this.message = 'Category has been successfully created!';
-            // }).catch((err) => {
-            //     _this.errors = err.response.data.errors;
-            //     _this.loading = false;
-            // });
+            let _this = this;
+            _this.errors = [];
+            _this.message = '';
+            _this.loading = true;
+            axios.put(this.$parent.MakeUrl('admin/post/'+this.getPostData('id')), {'title': this.title, 'description': this.description, 'category_value': this.category_value, 'tag_value': this.tag_value}).then((res) => {
+                _this.loading = false;
+                // _this.resetForm();
+                _this.message = 'Post has been successfully updated!';
+            }).catch((err) => {
+                _this.errors = err.response.data.errors;
+                _this.loading = false;
+            });
 
         },
         onFileChange(e) {

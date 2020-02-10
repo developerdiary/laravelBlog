@@ -27,7 +27,7 @@
                                 </td>
                                 <td>{{ post.created_at }}</td>
                                 <td class="text-right">
-                                    <button  @click="deletePost(ost.id, index)" class="btn btn-danger">
+                                    <button  @click="deletePost(post.id, index)" class="btn btn-danger">
                                         <i class="fa fa-trash"></i>
                                     </button>
                                     <a class="btn btn-primary" v-bind:href="post.editlink">
@@ -91,13 +91,13 @@ export default {
                 console.log(error);
             })
         },
-        deletePosts(postId, index) {
+        deletePost(postId, index) {
             let _this = this;
             this.$iosConfirm({
                 title: 'Are you sure?',
-                text: 'The user and their associated data will be permanently deleted. Proceed?'
+                text: 'The post and their associated data will be permanently deleted. Proceed?'
             }).then(function() {
-                axios.delete(_this.$parent.MakeUrl('admin/posts/'+postId)).then((res) => {
+                axios.delete(_this.$parent.MakeUrl('admin/post/'+postId)).then((res) => {
                     _this.posts.splice(index, 1);
                     _this.total = _this.total - 1;
                     _this.loadPosts();
