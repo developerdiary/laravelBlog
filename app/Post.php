@@ -8,7 +8,7 @@ class Post extends Model
 {
     //
 
-    protected $with = ['tag', 'category'];
+    protected $with = ['tag', 'category', 'gallery'];
 
     protected $appends = ['editlink'];
 
@@ -25,5 +25,10 @@ class Post extends Model
 
     public function category(){
         return $this->belongsToMany('App\Category', 'post_category')->withTimestamps();
+    }
+
+    
+    public function gallery(){
+        return $this->morphMany('App\Gallery', 'gallerytable');
     }
 }
