@@ -55,9 +55,11 @@
 
 <script>
 
+import Treeselect from '@riophae/vue-treeselect'
+
 export default {    
     components: { 
-        Treeselect: () => import('@riophae/vue-treeselect')
+        Treeselect
     },
     data() {
         return {            

@@ -37,9 +37,11 @@
 
 <script>
 
+import CategoryTableTree from './CategoryTableTree.vue'
+
 export default {
     components: { 
-        CategoryTableTree: () => import('./CategoryTableTree.vue')
+        CategoryTableTree
     },
     data() {
         return {
