@@ -10,7 +10,7 @@ Create Category
     <h1>Add Category</h1>
   </div>
   <div class="section-body">
-      <addCategory-component></addCategory-component>
+      <admin-addCategory-component></admin-addCategory-component>
   </div>
 </section>
 @endsection

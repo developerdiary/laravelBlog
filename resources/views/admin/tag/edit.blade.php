@@ -10,7 +10,7 @@ Edit Tag
     <h1>Edit Tag</h1>
   </div>
   <div class="section-body">
-      <editTag-component tag='{!! $tag->toJson() !!}'></editTag-component>
+      <admin-editTag-component tag='{!! $tag->toJson() !!}'></admin-editTag-component>
   </div>
 </section>
 @endsection

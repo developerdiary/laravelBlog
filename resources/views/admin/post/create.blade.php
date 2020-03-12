@@ -10,7 +10,7 @@ Create Post
     <h1>Add New Post</h1>
   </div>
   <div class="section-body">
-      <addPost-component></addPost-component>
+      <admin-addPost-component></admin-addPost-component>
   </div>
 </section>
 @endsection

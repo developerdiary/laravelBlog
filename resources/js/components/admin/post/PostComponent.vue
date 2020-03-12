@@ -5,7 +5,7 @@
             <div class="card-header">
                 <h4>Post <span v-if="total">({{ total }})</span></h4>
                 <div class="card-header-action">
-                    <a v-bind:href="$parent.MakeUrl('admin/post/create')" class="btn btn-primary">Add <i class="fas fa-plus"></i></a>
+                    <a v-bind:href="$parent.MakeUrl('admin/post/create')" class="btn btn-primary">Add    <i class="fas fa-plus"></i></a>
                 </div>
             </div>
             <div class="card-body p-0">
@@ -18,10 +18,10 @@
                                 <th>Published Date</th>
                                 <th></th>
                             </tr>
-                            <tr v-for="post, index in posts">
+                            <tr v-for="(post, index) in posts" v-bind:key="index">
                                 <td>{{ post.title }}</td>
                                 <td>
-                                    <div v-for="category, index in post.category">
+                                    <div v-for="(category, index) in post.category"  v-bind:key="index">
                                         {{ category.name }}
                                     </div>                                    
                                 </td>

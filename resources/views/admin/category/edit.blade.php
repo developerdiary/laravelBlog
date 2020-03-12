@@ -10,7 +10,7 @@ Update Category
     <h1>Update Category</h1>
   </div>
   <div class="section-body">
-      <editcategory-component category='{!! $category->toJson() !!}'></editcategory-component>
+      <admin-editcategory-component category='{!! $category->toJson() !!}'></admin-editcategory-component>
   </div>
 </section>
 @endsection

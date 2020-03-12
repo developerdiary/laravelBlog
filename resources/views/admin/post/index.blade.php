@@ -10,7 +10,7 @@ Manage Post
     <h1>Manage Post</h1>
   </div>
   <div class="section-body">
-      <post-component></post-component>
+      <admin-post-component></admin-post-component>
   </div>
 </section>
 @endsection

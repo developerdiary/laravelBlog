@@ -10,7 +10,7 @@ Manage Users
     <h1>Manage Users</h1>
   </div>
   <div class="section-body">
-      <users-component></users-component>
+      <admin-users-component></admin-users-component>
   </div>
 </section>
 @endsection

@@ -10,7 +10,7 @@ Edit Profile ({{ $user->name }})
     <h1>Edit Profile</h1>
   </div>
   <div class="section-body">
-      <profile-component user='{!! $user->toJson() !!}'></profile-component>
+      <admin-profile-component user='{!! $user->toJson() !!}'></admin-profile-component>
   </div>
 </section>
 @endsection

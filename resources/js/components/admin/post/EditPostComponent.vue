@@ -174,13 +174,10 @@
 
 <script>
 
-import Treeselect from '@riophae/vue-treeselect'
-import Imagegallery from '../ImageGalleryComponent';
-
 export default {    
     components: { 
-        Treeselect,
-        Imagegallery
+        Treeselect: () => import('@riophae/vue-treeselect'),                
+        Imagegallery: () => import('../ImageGalleryComponent')
     },
     props: {
         post: {

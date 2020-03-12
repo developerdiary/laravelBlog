@@ -7,17 +7,18 @@ Route::get('home', function() {
     return redirect(route('admin.dashboard'));
 });
 
-
-
+Route::get('post', [
+    'as' => 'post', 'uses' => 'PostController@index'
+]);
 
 Route::name('admin.')->prefix('admin')->middleware('auth')->group(function() {
 
-    Route::get('dashboard', 'DashboardController')->name('dashboard');
-    Route::resource('post', 'PostController');
-    Route::resource('category', 'CategoryController');    
+    Route::get('dashboard', 'Admin\DashboardController')->name('dashboard');
+    Route::resource('post', 'Admin\PostController');
+    Route::resource('category', 'Admin\CategoryController');    
     
-    Route::get('tag/all', array('as' => 'tag.all', 'uses' => 'TagController@getAllTags'));
-    Route::resource('tag', 'TagController');    
+    Route::get('tag/all', array('as' => 'tag.all', 'uses' => 'Admin\TagController@getAllTags'));
+    Route::resource('tag', 'Admin\TagController');    
 
     Route::get('users/roles', 'UserController@roles')->name('users.roles');
     Route::resource('users', 'UserController', [

@@ -3,10 +3,10 @@
     <div class="col-12">
         <div class="alert alert-primary" v-if="message">
             {{ message }}
-        </div>
+        </div>        
         <div class="card">
-            <div class="card-header">
-                <h4>Update Category</h4>                
+            <div class="card-header">                
+                <h4>Add a New Category</h4>
             </div>
             <div class="card-body">
                 <div class="form-group row mb-4">
@@ -22,11 +22,13 @@
                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3">Parent Category</label>
                     <div class="col-sm-12 col-md-7">
 
-                        <treeselect v-model="value" :multiple="false"  :show-count="true" placeholder="Select Category" :options="categories" v-bind:class="{'is-invalid': errors.value}"/>
+                        <treeselect v-model="value" :multiple="false"  :show-count="true" placeholder="Select Category" :options="categories" v-bind:class="{'is-invalid': errors.parent_id}"/>
+
                         
-                        <div class="invalid-feedback" v-if="errors.value">
-                            <p>{{ errors.value[0] }}</p>
+                        <div class="invalid-feedback" v-if="errors.parent_id">
+                            <p>{{ errors.parent_id[0] }}</p>
                         </div>                       
+
                     </div>
                 </div>
                 <div class="form-group row mb-4">
@@ -41,7 +43,7 @@
                 <div class="form-group row mb-4">
                     <label class="col-form-label text-md-right col-12 col-md-3 col-lg-3"></label>
                     <div class="col-sm-12 col-md-7">
-                        <button v-bind:disabled="loading" @click="updateCategory" class="btn btn-primary"><span v-if="loading">Adding</span><span v-else>Update</span></button>
+                        <button v-bind:disabled="loading" @click="addCategory" class="btn btn-primary"><span v-if="loading">Adding</span><span v-else>Add</span></button>
                     </div>
                 </div>
             </div>
@@ -53,66 +55,39 @@
 
 <script>
 
-// import the component
-import Treeselect from '@riophae/vue-treeselect'
-
-
-export default {
-    components: { Treeselect },
-    props: {
-        category: {
-            type: String
-        }
+export default {    
+    components: { 
+        Treeselect: () => import('@riophae/vue-treeselect')
     },
     data() {
         return {            
-            name: this.getCategorydata('name'),
-            description: this.getCategorydata('description'),
-            value: this.getCategorydata('parent_id'),
+            name: '',
+            description: '',
+            value: null,
             categories: [],
             errors: [],        
             message: '',
-            loading: false,
-            categoryId: this.getCategorydata('id'),      
+            loading: false           
         }
     },
     mounted() {
         this.getCategories();
     },
-    methods: {   
-        getCategorydata(key) {
-            return JSON.parse(this.category)[key];            
-        },     
-        getCategories() {  
-            let _this = this;            
-            axios.get(this.$parent.MakeUrl('admin/category')).then((res) => {                    
-                    res.data.push({id: 0, label: "Select Category"});                                       
-                    res.data.forEach(function (element, i) {                        
-                        _this.disableNodeById(element, _this.categoryId);                        
-                    });
-                    _this.categories = res.data.reverse();
-                }).catch((err) => {
+    methods: {
+        getCategories() {            
+            axios.get(this.$parent.MakeUrl('admin/category')).then((res) => {
+                this.categories = res.data;
+            }).catch((err) => {
             });
         },
-        disableNodeById(currentNode, id) {   
-            let _this = this;                           
-            if (currentNode.id === id) {                   
-                currentNode['isDisabled'] = true;             
-            }
-            if(currentNode.children && currentNode.children.length > 0){                    
-                for(let node = 0; node < currentNode.children.length; node ++) {                                                 
-                    _this.disableNodeById(currentNode.children[node], id);
-                }
-            }                                 
-        },
-        updateCategory() {
+        addCategory() {
             let _this = this;
             _this.errors = [];
             _this.message = '';
             _this.loading = true;
-            axios.put(this.$parent.MakeUrl('admin/category/'+this.getCategorydata('id')), {'name': this.name, 'description': this.description, 'parent_id': this.value}).then((res) => {
+            axios.post(this.$parent.MakeUrl('admin/category'), {'name': this.name, 'description': this.description, 'parent_id': this.value}).then((res) => {
                 _this.loading = false;
-                // _this.resetForm();
+                _this.resetForm();
                 _this.message = 'Category has been successfully created!';
             }).catch((err) => {
                 _this.errors = err.response.data.errors;

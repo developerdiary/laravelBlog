@@ -1,7 +1,7 @@
 @extends('layouts.admin-master')
 
 @section('title')
-Edit Post ({{ $post->name }})
+Edit Post ({{ $post->title }})
 @endsection
 
 @section('content')
@@ -9,8 +9,8 @@ Edit Post ({{ $post->name }})
   <div class="section-header">
     <h1>Edit Post</h1>
   </div>
-  <div class="section-body">
-      <editpost-component post='{!! $post->toJson() !!}'></editpost-component>
+  <div class="section-body">      
+      <admin-editpost-component post='{!! $post->toJson() !!}'></admin-editpost-component>
   </div>
 </section>
 @endsection

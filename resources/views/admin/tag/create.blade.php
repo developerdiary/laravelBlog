@@ -10,7 +10,7 @@ Create Tag
     <h1>Add Tag</h1>
   </div>
   <div class="section-body">
-      <addTag-component></addTag-component>
+      <admin-addTag-component></admin-addTag-component>
   </div>
 </section>
 @endsection

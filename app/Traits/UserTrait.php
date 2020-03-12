@@ -14,7 +14,7 @@ trait UserTrait {
         {
             return Storage::disk('public')->url($this->avatar);
         }
-        return asset('assets/img/avatar/avatar-1.png');
+        return asset('assets/admin/img/avatar/avatar-1.png');
     }
 
     public function getIsmeAttribute()

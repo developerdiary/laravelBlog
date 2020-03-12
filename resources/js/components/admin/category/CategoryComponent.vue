@@ -36,10 +36,10 @@
 </template>
 
 <script>
-import CategoryTableTree from './CategoryTableTree.vue'
+
 export default {
-    components: {
-        CategoryTableTree
+    components: { 
+        CategoryTableTree: () => import('./CategoryTableTree.vue')
     },
     data() {
         return {
@@ -55,8 +55,7 @@ export default {
         let query = location.search.split('query=')[1];
         if(query !== undefined) {
             this.query = query;
-        }
-                            
+        }                            
         this.url = BaseUrl('admin/category');       
         this.loadCategories();
     },

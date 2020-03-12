@@ -2,7 +2,6 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
-
 // Quill Editor
 import VueQuillEditor from 'vue-quill-editor'
 // require styles
@@ -24,41 +23,21 @@ import '@riophae/vue-treeselect/dist/vue-treeselect.css'
 import iosAlertView from 'vue-ios-alertview';
 Vue.use(iosAlertView);
 
-import UsersComponent from './components/UsersComponent';
-import ProfileComponent from './components/ProfileComponent';
-import AdduserComponent from './components/AdduserComponent';
+Vue.component('admin-users-component', () => import('./components/admin/UsersComponent'));
+Vue.component('admin-profile-component', () => import('./components/admin/ProfileComponent'));
+Vue.component('admin-adduser-component', () => import('./components/admin/AdduserComponent'));
 
+Vue.component('admin-post-component', () => import('./components/admin/post/PostComponent'));
+Vue.component('admin-addpost-component', () => import('./components/admin/post/AddPostComponent'));
+Vue.component('admin-editpost-component', () => import('./components/admin/post/EditPostComponent'));
 
-import PostComponent from './components/post/PostComponent';
-import AddPostComponent from './components/post/AddPostComponent';
-import EditPostComponent from './components/post/EditPostComponent';
+Vue.component('admin-category-component', () => import('./components/admin/category/CategoryComponent'));
+Vue.component('admin-addcategory-component', () => import('./components/admin/category/AddCategoryComponent'));
+Vue.component('admin-editcategory-component', () => import('./components/admin/category/EditCategoryComponent'));
 
-
-import CategoryComponent from './components/category/CategoryComponent';
-import AddCategoryComponent from './components/category/AddCategoryComponent';
-import EditCategoryComponent from './components/category/EditCategoryComponent';
-
-import TagComponent from './components/tag/TagComponent';
-import AddTagComponent from './components/tag/AddTagComponent';
-import EditTagComponent from './components/tag/EditTagComponent';
-
-Vue.component('post-component', PostComponent);
-Vue.component('addpost-component', AddPostComponent);
-Vue.component('editpost-component', EditPostComponent);
-
-
-Vue.component('users-component', UsersComponent);
-Vue.component('profile-component', ProfileComponent);
-Vue.component('adduser-component', AdduserComponent);
-
-Vue.component('category-component', CategoryComponent);
-Vue.component('addcategory-component', AddCategoryComponent);
-Vue.component('editcategory-component', EditCategoryComponent);
-
-
-Vue.component('tag-component', TagComponent);
-Vue.component('addtag-component', AddTagComponent);
-Vue.component('edittag-component', EditTagComponent);
+Vue.component('admin-tag-component', () => import('./components/admin/tag/TagComponent'));
+Vue.component('admin-addtag-component', () => import('./components/admin/tag/AddTagComponent'));
+Vue.component('admin-edittag-component', () => import('./components/admin/tag/EditTagComponent'));
 
 
 const app = new Vue({

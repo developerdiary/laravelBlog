@@ -10,7 +10,7 @@ Tags
     <h1>Tag</h1>
   </div>
   <div class="section-body">
-      <tag-component></tag-component>
+      <admin-tag-component></admin-tag-component>
   </div>
 </section>
 @endsection

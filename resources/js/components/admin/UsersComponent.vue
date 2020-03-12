@@ -18,7 +18,7 @@
                                 <th>Reg. Date</th>
                                 <th></th>
                             </tr>
-                            <tr v-for="user, index in users">
+                            <tr v-for="(user, index) in users" v-bind:key="index">
                                 <td>{{ user.name }}</td>
                                 <td>{{ user.email }}</td>
                                 <td>{{ user.created_at }}</td>

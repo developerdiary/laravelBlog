@@ -10,7 +10,7 @@ Manage Post Category
     <h1>Manage Post Category</h1>
   </div>
   <div class="section-body">      
-      <category-component></category-component>
+      <admin-category-component></admin-category-component>
   </div>
 </section>
 @endsection
