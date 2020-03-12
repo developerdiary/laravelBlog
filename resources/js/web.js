@@ -2,6 +2,13 @@ require('./bootstrap');
 
 window.Vue = require('vue');
 
+Vue.use(require('vue-moment'));
+
+import BlogIndexComponent from './components/frontend/blog/IndexComponent';
+
+Vue.component('blog-index-component', BlogIndexComponent);
+
+
 const web = new Vue({
     el: '#web',
     data() {

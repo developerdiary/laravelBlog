@@ -74767,18 +74767,18 @@ Vue.use(vue_ios_alertview__WEBPACK_IMPORTED_MODULE_7___default.a);
 
 
 
-Vue.component('post-component', _components_admin_post_PostComponent__WEBPACK_IMPORTED_MODULE_11__["default"]);
-Vue.component('addpost-component', _components_admin_post_AddPostComponent__WEBPACK_IMPORTED_MODULE_12__["default"]);
-Vue.component('editpost-component', _components_admin_post_EditPostComponent__WEBPACK_IMPORTED_MODULE_13__["default"]);
-Vue.component('users-component', _components_admin_UsersComponent__WEBPACK_IMPORTED_MODULE_8__["default"]);
-Vue.component('profile-component', _components_admin_ProfileComponent__WEBPACK_IMPORTED_MODULE_9__["default"]);
-Vue.component('adduser-component', _components_admin_AdduserComponent__WEBPACK_IMPORTED_MODULE_10__["default"]);
-Vue.component('category-component', _components_admin_category_CategoryComponent__WEBPACK_IMPORTED_MODULE_14__["default"]);
-Vue.component('addcategory-component', _components_admin_category_AddCategoryComponent__WEBPACK_IMPORTED_MODULE_15__["default"]);
-Vue.component('editcategory-component', _components_admin_category_EditCategoryComponent__WEBPACK_IMPORTED_MODULE_16__["default"]);
-Vue.component('tag-component', _components_admin_tag_TagComponent__WEBPACK_IMPORTED_MODULE_17__["default"]);
-Vue.component('addtag-component', _components_admin_tag_AddTagComponent__WEBPACK_IMPORTED_MODULE_18__["default"]);
-Vue.component('edittag-component', _components_admin_tag_EditTagComponent__WEBPACK_IMPORTED_MODULE_19__["default"]);
+Vue.component('admin-post-component', _components_admin_post_PostComponent__WEBPACK_IMPORTED_MODULE_11__["default"]);
+Vue.component('admin-addpost-component', _components_admin_post_AddPostComponent__WEBPACK_IMPORTED_MODULE_12__["default"]);
+Vue.component('admin-editpost-component', _components_admin_post_EditPostComponent__WEBPACK_IMPORTED_MODULE_13__["default"]);
+Vue.component('admin-users-component', _components_admin_UsersComponent__WEBPACK_IMPORTED_MODULE_8__["default"]);
+Vue.component('admin-profile-component', _components_admin_ProfileComponent__WEBPACK_IMPORTED_MODULE_9__["default"]);
+Vue.component('admin-adduser-component', _components_admin_AdduserComponent__WEBPACK_IMPORTED_MODULE_10__["default"]);
+Vue.component('admin-category-component', _components_admin_category_CategoryComponent__WEBPACK_IMPORTED_MODULE_14__["default"]);
+Vue.component('admin-addcategory-component', _components_admin_category_AddCategoryComponent__WEBPACK_IMPORTED_MODULE_15__["default"]);
+Vue.component('admin-editcategory-component', _components_admin_category_EditCategoryComponent__WEBPACK_IMPORTED_MODULE_16__["default"]);
+Vue.component('admin-tag-component', _components_admin_tag_TagComponent__WEBPACK_IMPORTED_MODULE_17__["default"]);
+Vue.component('admin-addtag-component', _components_admin_tag_AddTagComponent__WEBPACK_IMPORTED_MODULE_18__["default"]);
+Vue.component('admin-edittag-component', _components_admin_tag_EditTagComponent__WEBPACK_IMPORTED_MODULE_19__["default"]);
 var app = new Vue({
   el: '#app',
   data: function data() {

@@ -42,23 +42,23 @@ import TagComponent from './components/admin/tag/TagComponent';
 import AddTagComponent from './components/admin/tag/AddTagComponent';
 import EditTagComponent from './components/admin/tag/EditTagComponent';
 
-Vue.component('post-component', PostComponent);
-Vue.component('addpost-component', AddPostComponent);
-Vue.component('editpost-component', EditPostComponent);
+Vue.component('admin-post-component', PostComponent);
+Vue.component('admin-addpost-component', AddPostComponent);
+Vue.component('admin-editpost-component', EditPostComponent);
 
 
-Vue.component('users-component', UsersComponent);
-Vue.component('profile-component', ProfileComponent);
-Vue.component('adduser-component', AdduserComponent);
+Vue.component('admin-users-component', UsersComponent);
+Vue.component('admin-profile-component', ProfileComponent);
+Vue.component('admin-adduser-component', AdduserComponent);
 
-Vue.component('category-component', CategoryComponent);
-Vue.component('addcategory-component', AddCategoryComponent);
-Vue.component('editcategory-component', EditCategoryComponent);
+Vue.component('admin-category-component', CategoryComponent);
+Vue.component('admin-addcategory-component', AddCategoryComponent);
+Vue.component('admin-editcategory-component', EditCategoryComponent);
 
 
-Vue.component('tag-component', TagComponent);
-Vue.component('addtag-component', AddTagComponent);
-Vue.component('edittag-component', EditTagComponent);
+Vue.component('admin-tag-component', TagComponent);
+Vue.component('admin-addtag-component', AddTagComponent);
+Vue.component('admin-edittag-component', EditTagComponent);
 
 
 const app = new Vue({

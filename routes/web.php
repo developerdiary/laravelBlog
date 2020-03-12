@@ -7,8 +7,8 @@ Route::get('home', function() {
     return redirect(route('admin.dashboard'));
 });
 
-Route::get('post', [
-    'as' => 'post', 'uses' => 'PostController@index'
+Route::get('blog', [
+    'as' => 'blog', 'uses' => 'PostController@index'
 ]);
 
 Route::name('admin.')->prefix('admin')->middleware('auth')->group(function() {
