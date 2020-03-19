@@ -1,4 +1,7 @@
 <?php
+
+// Route::get('/', 'AppController@get');
+
 Route::get('/', function() {
     return redirect(route('admin.dashboard'));
 });
