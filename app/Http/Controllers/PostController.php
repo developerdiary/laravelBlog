@@ -23,4 +23,16 @@ class PostController extends Controller
         
         return view('frontend.blog.index');
     }
+
+    public function postBySlug(Request $request){
+
+        $post = new Post;
+        $post = $post->where('slug', $request->slug)->first();        
+        if(!empty($post)){            
+            $post->features = json_decode($post->features, true);                     
+            return view('frontend.blog.single', compact('post'));
+        }else{
+            abort(404);
+        }
+    }
 }

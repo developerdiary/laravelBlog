@@ -24,13 +24,8 @@
     <!-- Navigation -->
     @include('frontend.partials.topnav')
 
-    <!-- Page Header -->
-    @include('frontend.partials.header')
-
-    <!-- Main Content -->
-    <div class="main-content">
-      @yield('content')
-    </div>    
+    <!-- Main Content -->    
+    @yield('content')    
 
     <hr>
 

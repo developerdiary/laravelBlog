@@ -10,7 +10,7 @@ Edit Post ({{ $post->title }})
     <h1>Edit Post</h1>
   </div>
   <div class="section-body">      
-      <admin-editpost-component post='{!! $post->toJson() !!}'></admin-editpost-component>
+      <admin-editpost-component post='{{ $post }}'></admin-editpost-component>
   </div>
 </section>
 @endsection

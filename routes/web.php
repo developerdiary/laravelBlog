@@ -14,6 +14,8 @@ Route::get('blog', [
     'as' => 'blog', 'uses' => 'PostController@index'
 ]);
 
+Route::get('blog/{slug}', 'PostController@postBySlug');
+
 Route::name('admin.')->prefix('admin')->middleware('auth')->group(function() {
 
     Route::get('dashboard', 'Admin\DashboardController')->name('dashboard');

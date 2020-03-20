@@ -1,24 +1,39 @@
 <template>
-    <div class="container">
-        <div class="row"  v-if="posts.length">
-            <div class="col-lg-8 col-md-10 mx-auto">                
-                <div v-for="(post, index) in posts" class="post-preview" v-bind:key="index">
-                    <a href="post.html">
-                        <h2 class="post-title">
-                            {{ post.title }}
-                        </h2>
-                        <h3 class="post-subtitle">
-                            {{ post.subtitle }}
-                        </h3>
-                    </a>
-                    <p class="post-meta"><span>{{ post.updated_at | moment("dddd, Do MMMM YYYY") }}</span></p>                    
-                    <hr v-if="(posts.length -1 ) != index">                 
-                </div>                
-                <!-- Pager -->
+    <div class="blog">
+        <header class="masthead" style="background-image: url('img/home-bg.jpg')">
+            <div class="overlay"></div>
+            <div class="container">
+                <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    <div class="site-heading">
+                    <h1>Clean Blog</h1>
+                    <span class="subheading">A Blog Theme by Start Bootstrap</span>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </header>    
+        <div class="container">
+            <div class="row"  v-if="posts.length">
+                <div class="col-lg-8 col-md-10 mx-auto">                
+                    <div v-for="(post, index) in posts" class="post-preview" v-bind:key="index">                        
+                        <a v-bind:href="'blog/'+ post.slug">
+                            <h2 class="post-title">
+                                {{ post.title }}
+                            </h2>
+                            <h3 class="post-subtitle">
+                                {{ post.subtitle }}
+                            </h3>                            
+                        </a>
+                        <p class="post-meta"><span>{{ post.updated_at | moment("dddd, Do MMMM YYYY") }}</span></p>                    
+                        <hr v-if="(posts.length -1 ) != index">                 
+                    </div>                
+                    <!-- Pager -->
 
-                <div class="clearfix" v-if="posts.length && total > posts.length">
-                    <a @click="loadPosts" class="btn btn-primary float-right"  href="javascript:void(0)">Older Posts &rarr;</a>
-                </div>                
+                    <div class="clearfix" v-if="posts.length && total > posts.length">
+                        <a @click="loadPosts" class="btn btn-primary float-right"  href="javascript:void(0)">Older Posts &rarr;</a>
+                    </div>                
+                </div>
             </div>
         </div>
     </div>
