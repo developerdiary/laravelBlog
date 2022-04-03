@@ -50,7 +50,6 @@ class CategoryController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'parent_id' => 'required',
             'description' => 'required'
         ]);      
         
@@ -58,7 +57,10 @@ class CategoryController extends Controller
 
         $category->name = $request->name;
         $category->slug = Str::slug($request->name, '-');
-        $category->parent_id = $request->parent_id;
+        if($request->parent_id){
+            $category->parent_id = $request->parent_id;
+        }
+        
         $category->description = $request->description;
 
         $category->save();

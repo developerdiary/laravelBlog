@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class AddFeatureToPosts extends Migration
+class ChangeParentIdTypeInCategoriesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,8 @@ class AddFeatureToPosts extends Migration
      */
     public function up()
     {
-        Schema::table('posts', function (Blueprint $table) {
-            $table->string('videourl')->nullable();  
+        Schema::table('categories', function (Blueprint $table) {
+            $table->integer('parent_id')->default(0)->change();
         });
     }
 
@@ -25,8 +25,8 @@ class AddFeatureToPosts extends Migration
      */
     public function down()
     {
-        Schema::table('posts', function (Blueprint $table) {
-            $table->dropColumn(['videourl']);
+        Schema::table('categories', function (Blueprint $table) {
+            $table->integer('parent_id')->default(0)->change();
         });
     }
 }
